@@ -1,8 +1,21 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import LoginPage from './pages/login/LoginPage.js';
 import './app.css';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <h1>메인페이지</h1>
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  }
+]);
 
 function App() {
   return (
-    <h1>hello!</h1>
+    <RouterProvider router={router}/>
   );
 }
 
