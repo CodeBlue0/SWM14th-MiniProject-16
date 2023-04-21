@@ -1,12 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
 const LoginForm = (props) => {
     const [name, setName] = useState('');
+    const loginErrorMessageRef = useRef();
     
+    const clearErrorMessage = () => {
+        loginErrorMessageRef.current.innerText = '';
+    }
+
+    const writeErrorMessage = (errorMessage) => {
+        loginErrorMessageRef.current.innerText = `⚠️ ${errorMessage}`;
+    }
+
     const handleChangeName = (e) => {
         e.preventDefault();
         setName(e.target.value);
+    }
+
+    const handleClickLogin = (e) => {
+        e.preventDefault();
+        if (!name) {
+            writeErrorMessage("이름을 입력해야 합니다");
+            return;
+        }
     }
 
     return (
@@ -14,9 +31,11 @@ const LoginForm = (props) => {
             <NameInput 
                 placeholder='이름을 입력해 주세요'
                 onChange={handleChangeName}
+                onFocus={() => {clearErrorMessage()}}
                 value={name}
             />
-            <LoginButton>로 그 인</LoginButton>
+            <LoginErrorMessage ref={loginErrorMessageRef}></LoginErrorMessage>
+            <LoginButton onClick={handleClickLogin}>로 그 인</LoginButton>
         </Form>
     )
 }
@@ -44,6 +63,13 @@ const NameInput = styled.input`
         font-weight: 100;
     }
 `;
+
+const LoginErrorMessage = styled.p`
+    color: #f0382b;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+`
 
 const LoginButton = styled.button`
     width: 100%;
