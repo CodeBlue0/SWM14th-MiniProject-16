@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
-const LoginForm = (props) => {
+const LoginForm = ({ onLogin }) => {
     const [name, setName] = useState('');
     const loginErrorMessageRef = useRef();
     
@@ -24,6 +24,7 @@ const LoginForm = (props) => {
             writeErrorMessage("이름을 입력해야 합니다");
             return;
         }
+        onLogin(name);
     }
 
     return (

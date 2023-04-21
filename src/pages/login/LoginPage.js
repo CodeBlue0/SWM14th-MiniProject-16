@@ -1,14 +1,25 @@
 import React from 'react';
+import { currentUserNameState } from '../../atoms';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import styled from "styled-components";
 import LoginForm from '../../components/LoginForm/LoginForm';
 
 const LoginPage = (props) => {
+    const [ , setCurrentUserName] = useRecoilState(currentUserNameState);
+    const navigate = useNavigate();
+
+    const login = (name) => {
+        setCurrentUserName(name);
+        navigate("/");
+    }
+
     return(
         <div>
             <LoginHeader>
                 <LoginTitle>L / O / G / I / N</LoginTitle>
             </LoginHeader>
-            <LoginForm />
+            <LoginForm onLogin={login}/>
         </div>
     )
 }
