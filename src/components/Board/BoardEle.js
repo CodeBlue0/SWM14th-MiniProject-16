@@ -10,6 +10,11 @@ const BoardEle = (props) => {
         console.log(props.no != 0);
         if (props.no != 0) {
             setClassText('ElementBox');
+
+            // api로 부터 값들을 받아와서 text list를
+            // 변경해야됨. props.no로 부터 받아온 값들을
+            // text에 적용해야됨.
+
             setText([props.no, '제목', '날짜 및 시간', '카테고리', '접수 인원', '작성자', '등록'])
         }
     }, []);
