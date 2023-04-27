@@ -5,7 +5,7 @@ import './Register.css'
 const Register = (props) => {
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('커피챗');
     const [curNum, setCurNum] = useState('');
   
     const handleTitleChange = (e) => {
@@ -26,7 +26,10 @@ const Register = (props) => {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      // 등록 처리 로직
+      console.log(title);
+      console.log(date);
+      console.log(category);
+      console.log(curNum);
     };
   
     return (
@@ -58,8 +61,8 @@ const Register = (props) => {
                   </div>
                   <div className="RtypeOp">
                       <select value={category} onChange={handleCategoryChange}>
-                      <option value="1">커피챗</option>
-                      <option value="2">식사챗</option>
+                        <option value="커피챗">커피챗</option>
+                        <option value="식사챗">식사챗</option>
                       </select>
                   </div>
                   <div className="RcurNumOp">

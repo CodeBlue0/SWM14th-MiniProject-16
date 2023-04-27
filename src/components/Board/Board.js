@@ -5,12 +5,18 @@ import "./Board.css";
 
 const Board = (props) => {
     const [title, setTitle] = useState('');
+    const [data, setData] = useState([]);
+
     useEffect(() => {
         if (props.title === 0) {
             setTitle("C / O / M / M / U / I / T / Y");
         } else {
             setTitle("M / Y / P / A / G / E");
         }
+
+        fetch("http://localhost:8080/board/list")
+            .then(res => res.json())
+            .then(res => setData(res.data));
     }, []);
 
     return(
@@ -19,9 +25,20 @@ const Board = (props) => {
                 <BoardTitle>{title}</BoardTitle>
             </BoardHeader>
             <div className="board-element-list">
-                <BoardEle no='0'/>
-                <BoardEle no='1'/>
-                <BoardEle no='2'/>
+                <BoardEle id={0}/>
+                {
+                    data.map(element => {
+                        return <BoardEle 
+                                    id={element.id} 
+                                    title={element.title}
+                                    revervation_date={element.revervation_date}
+                                    category={element.category}
+                                    writer={element.writer}
+                                    registrant_count={element.registrant_count}
+                                    current_count={element.current_count}
+                                />
+                    })
+                }
             </div>
         </div>
     )
