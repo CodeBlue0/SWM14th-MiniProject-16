@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import './Register.css'
 
@@ -13,7 +13,7 @@ const Register = (props) => {
     };
   
     const handleDateChange = (e) => {
-      setDate(e.target.value);
+      setDate(e.target.value.replace("T", " "));
     };
   
     const handleCategoryChange = (e) => {
@@ -81,9 +81,8 @@ const Register = (props) => {
                   </div>
                   <div className="RtimeOp">
                       <input
-                      type="date"
-                      min="2023-04-27"
-                      max="2023-12-31"
+                      type="datetime-local"
+                      min={new Date().getFullYear() + "-" + String(new Date().getMonth() + 1).padStart(2, "0") + "-" + String(new Date().getDate()).padStart(2, "0") + "T" + String(new Date().getHours()).padStart(2, "0") + ":" + String(new Date().getMinutes()).padStart(2, "0")}
                       value={date}
                       onChange={handleDateChange}
                       />

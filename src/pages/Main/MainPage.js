@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router';
 const MainPage = (props) => {
     const currentUserName = useRecoilValue(currentUserNameState);
     const navigate = useNavigate()
-
+    
     useEffect(() => {
         if (!currentUserName) {
             navigate("/login");
