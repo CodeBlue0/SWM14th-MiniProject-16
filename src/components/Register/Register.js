@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import './Register.css'
+import { useRecoilValue } from 'recoil';
+import { currentUserNameState } from '../../atoms';
 
-const Register = (props) => {
+const Register = ({onRegister}) => {
+    const currentUserName = useRecoilValue(currentUserNameState);
+
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
     const [category, setCategory] = useState('커피챗');
@@ -42,7 +46,8 @@ const Register = (props) => {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      if (validate()) {
+      
+      if (window.confirm("등록하시겠습니까?") && validate()) {
         fetch("http://localhost:8080/board/write", {
           method: "POST",
           headers: {
@@ -53,11 +58,16 @@ const Register = (props) => {
             category,
             registrant_count: curNum,
             reveration_date: date,
-            writer: "소마인"
+            writer: currentUserName
           })
         })
               .then(res => res.json())
-              .then(res => console.log(res.data));
+              .then(res => {
+                onRegister();
+                setTitle('');
+                setDate('');
+                setCurNum('');
+              });
       }
     };
   

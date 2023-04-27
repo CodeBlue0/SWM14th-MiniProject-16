@@ -1,33 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import BoardEle from './BoardEle';
 import "./Board.css";
 
-const Board = (props) => {
-    const [title, setTitle] = useState('');
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        if (props.title === 0) {
-            setTitle("C / O / M / M / U / I / T / Y");
-        } else {
-            setTitle("M / Y / P / A / G / E");
-        }
-
-        fetch("http://localhost:8080/board/list")
-            .then(res => res.json())
-            .then(res => setData(res.data));
-    }, []);
-
+const Board = ({pageTitle, data, onJoin}) => {
     return(
         <div>
             <BoardHeader>
-                <BoardTitle>{title}</BoardTitle>
+                <BoardTitle>{pageTitle}</BoardTitle>
             </BoardHeader>
             <div className="board-element-list">
                 <BoardEle id={0}/>
                 {
-                    data.map(element => {
+                   data.map(element => {
                         return <BoardEle
                                     key={element.id} 
                                     id={element.id} 
@@ -37,6 +22,7 @@ const Board = (props) => {
                                     writer={element.writer}
                                     registrant_count={element.registrant_count}
                                     current_count={element.current_count}
+                                    onJoin={onJoin}
                                 />
                     })
                 }

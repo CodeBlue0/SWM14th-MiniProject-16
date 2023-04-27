@@ -5,7 +5,7 @@ import { currentUserNameState } from '../../atoms';
 
 // props : no
 // => title, time, type, curNum, totNum, owner, state 
-const BoardEle = ({id, title, revervation_date, category, writer, registrant_count, current_count}) => {
+const BoardEle = ({id, title, revervation_date, category, writer, registrant_count, current_count, onJoin}) => {
     const currentUserName = useRecoilValue(currentUserNameState);
     const [text, setText] = useState(['NO.', '제목', '날짜 및 시간', '카테고리', '접수 인원', '작성자', '등록']);
     const [classText, setClassText] = useState('ElementBoxBold');
@@ -14,7 +14,9 @@ const BoardEle = ({id, title, revervation_date, category, writer, registrant_cou
         if (e.target.classList.contains("join") && window.confirm(`[${title}]을(를) 신청하시겠습니까?`)) {
             fetch(`http://localhost:8080/board/register/${id}/${currentUserName}`)
             .then(res => res.json())
-            .then(res => console.log(res));
+            .then(res => {
+                onJoin();
+            });
         }
     }
 

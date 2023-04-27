@@ -9,7 +9,7 @@ const MyPage = (props) => {
     return(
         <div>
             <Header />
-            <Board title={1} />
+            <Board pageTitle={"M / Y / P / A / G / E"} />
             <Footer />
         </div>
     )
