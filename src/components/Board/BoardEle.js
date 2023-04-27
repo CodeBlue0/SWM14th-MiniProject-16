@@ -7,7 +7,7 @@ import { currentUserNameState } from '../../atoms';
 // => title, time, type, curNum, totNum, owner, state 
 const BoardEle = ({id, title, revervation_date, category, writer, registrant_count, current_count, onJoin}) => {
     const currentUserName = useRecoilValue(currentUserNameState);
-    const [text, setText] = useState(['NO.', '제목', '날짜 및 시간', '카테고리', '접수 인원', '작성자', '등록']);
+    const [text, setText] = useState(['NO.', '장소', '날짜 및 시간', '카테고리', '접수 인원', '작성자', '등록']);
     const [classText, setClassText] = useState('ElementBoxBold');
 
     const join = (e) => {
