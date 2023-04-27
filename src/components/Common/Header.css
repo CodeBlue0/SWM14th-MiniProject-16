@@ -1,0 +1,25 @@
+.logoImage {
+    height: 60px;
+}
+
+.headerBox {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexGrow {
+    flex-grow: 1;
+}
+
+.headerFont {
+    text-decoration: none;
+    color: inherit;
+    font-size: 20px;
+    font-family: 'Inria Serif', serif;
+}
+
+.headerMargin {
+    margin: 50px;
+}

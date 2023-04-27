@@ -1,16 +1,22 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import LoginPage from './pages/Login/LoginPage.js';
+import MainPage from './pages/Main/MainPage.js';
+import MyPage from './pages/MyPage/MyPage.js';
 import './app.css';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <h1>메인페이지</h1>
+    element: <MainPage />,
   },
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/mypage",
+    element: <MyPage />,
   }
 ]);
 

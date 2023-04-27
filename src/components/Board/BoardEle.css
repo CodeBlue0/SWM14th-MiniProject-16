@@ -1,0 +1,55 @@
+.ElementBoxBold {
+    height: 50px;
+    width: 1000px;
+    box-shadow: inset 0px -2px 1px rgba(0, 0, 0, 0.25), 
+                inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+
+    font-weight: bold;
+}
+
+.ElementBox {
+    height: 50px;
+    width: 1000px;
+    box-shadow: inset 0px -1.25px 1px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+}
+
+.noOp {
+    width: 100px;
+    text-align: center;
+}
+
+.titleOp {
+    width: 300px;
+    text-align: center;
+}
+
+.timeOp {
+    width: 200px;
+    text-align: center;
+}
+
+.typeOp {
+    width: 100px;
+    text-align: center;
+}
+
+.curNumOp {
+    width: 100px;
+    text-align: center;
+}
+
+.ownerOp {
+    width: 100px;
+    text-align: center;
+}
+
+.stateOp {
+    width: 100px;
+    text-align: center;
+}
