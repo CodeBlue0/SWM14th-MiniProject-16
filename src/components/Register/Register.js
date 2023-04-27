@@ -30,7 +30,7 @@ const Register = ({onRegister}) => {
 
     const validate = () => {
       if (!title) {
-        alert("제목을 입력해주세요");
+        alert("장소를 입력해주세요");
         return false;
       }
       if (!date) {
@@ -78,7 +78,7 @@ const Register = ({onRegister}) => {
         </RegisterHeader>
         <div className="register-section">
           <div className="RegisterBoxBold">
-            <div className="RtitleOp">제목</div>
+            <div className="RtitleOp">장소</div>
             <div className="RtimeOp">날짜 및 시간</div>
             <div className="RtypeOp">카테고리</div>
             <div className="RcurNumOp">접수 인원</div>
