@@ -34,48 +34,49 @@ const Register = (props) => {
         <RegisterHeader>
           <RegisterTitle>R / E / G / I / S / T / E / R</RegisterTitle>
         </RegisterHeader>
-  
-        <div className="RegisterBoxBold">
-          <div className="RtitleOp">제목</div>
-          <div className="RtimeOp">날짜 및 시간</div>
-          <div className="RtypeOp">카테고리</div>
-          <div className="RcurNumOp">접수 인원</div>
+        <div className="register-section">
+          <div className="RegisterBoxBold">
+            <div className="RtitleOp">제목</div>
+            <div className="RtimeOp">날짜 및 시간</div>
+            <div className="RtypeOp">카테고리</div>
+            <div className="RcurNumOp">접수 인원</div>
+          </div>
+    
+          <form onSubmit={handleSubmit}>
+              <div className="RegisterBox">
+                  <div className="RtitleOp">
+                      <input type="text" value={title} onChange={handleTitleChange} />
+                  </div>
+                  <div className="RtimeOp">
+                      <input
+                      type="date"
+                      min="2023-04-27"
+                      max="2023-12-31"
+                      value={date}
+                      onChange={handleDateChange}
+                      />
+                  </div>
+                  <div className="RtypeOp">
+                      <select value={category} onChange={handleCategoryChange}>
+                      <option value="1">커피챗</option>
+                      <option value="2">식사챗</option>
+                      </select>
+                  </div>
+                  <div className="RcurNumOp">
+                      <input
+                      type="number"
+                      min="1"
+                      max="10"
+                      value={curNum}
+                      onChange={handleCurNumChange}
+                      />
+                  </div>
+              </div>
+              <div className="submit-button">
+                  <SubmitButton type="submit">등록하기</SubmitButton>
+              </div>
+          </form>
         </div>
-  
-        <form onSubmit={handleSubmit}>
-            <div className="RegisterBox">
-                <div className="RtitleOp">
-                    <input type="text" value={title} onChange={handleTitleChange} />
-                </div>
-                <div className="RtimeOp">
-                    <input
-                    type="date"
-                    min="2023-04-27"
-                    max="2023-12-31"
-                    value={date}
-                    onChange={handleDateChange}
-                    />
-                </div>
-                <div className="RtypeOp">
-                    <select value={category} onChange={handleCategoryChange}>
-                    <option value="1">커피챗</option>
-                    <option value="2">식사챗</option>
-                    </select>
-                </div>
-                <div className="RcurNumOp">
-                    <input
-                    type="number"
-                    min="1"
-                    max="10"
-                    value={curNum}
-                    onChange={handleCurNumChange}
-                    />
-                </div>
-            </div>
-            <div className="submit-button">
-                <SubmitButton type="submit">등록하기</SubmitButton>
-            </div>
-        </form>
       </>
     );
   };
