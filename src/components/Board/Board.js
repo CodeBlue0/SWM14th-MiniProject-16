@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import BoardEle from './BoardEle';
+import "./Board.css";
 
 const Board = (props) => {
     const [title, setTitle] = useState('');
@@ -17,9 +18,11 @@ const Board = (props) => {
             <BoardHeader>
                 <BoardTitle>{title}</BoardTitle>
             </BoardHeader>
-            <BoardEle no='0'/>
-            <BoardEle no='1'/>
-            <BoardEle no='2'/>
+            <div className="board-element-list">
+                <BoardEle no='0'/>
+                <BoardEle no='1'/>
+                <BoardEle no='2'/>
+            </div>
         </div>
     )
 }
