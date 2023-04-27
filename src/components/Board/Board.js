@@ -28,10 +28,11 @@ const Board = (props) => {
                 <BoardEle id={0}/>
                 {
                     data.map(element => {
-                        return <BoardEle 
+                        return <BoardEle
+                                    key={element.id} 
                                     id={element.id} 
                                     title={element.title}
-                                    revervation_date={element.revervation_date}
+                                    revervation_date={element.reveration_date}
                                     category={element.category}
                                     writer={element.writer}
                                     registrant_count={element.registrant_count}

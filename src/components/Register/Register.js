@@ -23,13 +23,42 @@ const Register = (props) => {
     const handleCurNumChange = (e) => {
       setCurNum(e.target.value);
     };
+
+    const validate = () => {
+      if (!title) {
+        alert("제목을 입력해주세요");
+        return false;
+      }
+      if (!date) {
+        alert("날짜를 선택해주세요");
+        return false;
+      }
+      if (!curNum) {
+        alert("접수 인원을 골라주세요");
+        return false;
+      }
+      return true;
+    }
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      console.log(title);
-      console.log(date);
-      console.log(category);
-      console.log(curNum);
+      if (validate()) {
+        fetch("http://localhost:8080/board/write", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title,
+            category,
+            registrant_count: curNum,
+            reveration_date: date,
+            writer: "소마인"
+          })
+        })
+              .then(res => res.json())
+              .then(res => console.log(res.data));
+      }
     };
   
     return (
