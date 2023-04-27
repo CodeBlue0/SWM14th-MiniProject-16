@@ -48,7 +48,7 @@ const Register = ({onRegister}) => {
       e.preventDefault();
       
       if (window.confirm("등록하시겠습니까?") && validate()) {
-        fetch("http://localhost:8080/board/write", {
+        fetch("http://3.129.194.82:8080/board/write", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

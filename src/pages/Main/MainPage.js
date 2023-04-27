@@ -13,9 +13,9 @@ const MainPage = (props) => {
     const [data, setData] = useState([]);
 
     const getLatestData = useCallback(() => {
-        fetch("http://localhost:8080/board/list")
+        fetch("http://3.129.194.82:8080/board/list")
             .then(res => res.json())
-            .then(res => setData(res.data));
+            .then(res => setData(data => res.data));
     }, [setData]);
     
     useEffect(() => {

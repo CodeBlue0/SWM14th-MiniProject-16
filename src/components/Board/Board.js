@@ -12,7 +12,7 @@ const Board = ({pageTitle, data, onJoin}) => {
             <div className="board-element-list">
                 <BoardEle id={0}/>
                 {
-                   data.map(element => {
+                   data && data.map(element => {
                         return <BoardEle
                                     key={element.id} 
                                     id={element.id} 

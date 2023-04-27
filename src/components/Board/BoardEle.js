@@ -12,7 +12,7 @@ const BoardEle = ({id, title, revervation_date, category, writer, registrant_cou
 
     const join = (e) => {
         if (e.target.classList.contains("join") && window.confirm(`[${title}]을(를) 신청하시겠습니까?`)) {
-            fetch(`http://localhost:8080/board/register/${id}/${currentUserName}`)
+            fetch(`http://3.129.194.82:8080/board/register/${id}/${currentUserName}`)
             .then(res => res.json())
             .then(res => {
                 onJoin();
