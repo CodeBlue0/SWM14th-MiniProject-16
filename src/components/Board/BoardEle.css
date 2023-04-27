@@ -52,4 +52,18 @@
 .stateOp {
     width: 100px;
     text-align: center;
+    font-weight: bold;
+}
+
+.first {
+    color: black !important;
+}
+
+.done {
+    color: red;
+}
+
+.join {
+    color: #00b2ff;
+    cursor: pointer;
 }
