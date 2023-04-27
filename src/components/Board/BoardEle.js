@@ -24,11 +24,11 @@ const BoardEle = ({id, title, revervation_date, category, writer, registrant_cou
         if (id !== 0) {
             setClassText('ElementBox');
 
-            setText([id, title, revervation_date, category, 
+            setText(text => [id, title, revervation_date, category, 
                 `${current_count}/${registrant_count}`, writer,
                 currentUserName === writer ? "방장" : (registrant_count === current_count ? "마감" : "등록")])
         }
-    }, []);
+    }, [id, title, revervation_date, category, writer, registrant_count, current_count, currentUserName]);
 
     return (
         <div className={classText}>
